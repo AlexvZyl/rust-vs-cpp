@@ -32,6 +32,6 @@ fn main() {
     let ref1 = &mutable_vec;
     let ref2 = &mutable_vec;
     let ref3 = &mutable_vec;
-    // let ref4 = &mut mutable_vec;
+    let ref4 = &mut mutable_vec;
     println!("ref1: {:?}, ref2: {:?}", ref1, ref2);
 }

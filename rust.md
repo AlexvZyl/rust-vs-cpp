@@ -21,8 +21,8 @@
 - No exceptions - errors as values.
 - Very nice error handling in rust (builtin `?` operator).
 
-- Generics type inference is quite nice.
 - Very nice pattern matching.
 - Compiler helps you when you do not match all patterns.
 
+- Generics type inference is quite nice.
 - Mention `serde` and `tokio`.
