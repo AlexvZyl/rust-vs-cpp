@@ -1,5 +1,8 @@
 #![allow(dead_code, unused)]
 
+use futures_util::{stream::FuturesUnordered, StreamExt};
+use tokio::task::JoinHandle;
+
 fn some_func(value: usize) -> Result<u32, u32> {
     if value % 2 == 0 {
         return Err(1);
@@ -57,4 +60,12 @@ fn main() -> Result<(), u32> {
     }
 
     Ok(())
+}
+
+async fn cool_pattern() {
+    let mut tasks = FuturesUnordered::<JoinHandle<u32>>::new();
+
+    while let Some(Ok((return_value))) = tasks.next().await {
+        // do stuff...
+    }
 }

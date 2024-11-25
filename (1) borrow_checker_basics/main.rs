@@ -1,21 +1,23 @@
-#![allow(unused_variables)]
+#![allow(unused_variables, dead_code)]
 
+struct Foo {
+    buffer: Vec<u32>,
+}
+
+impl Foo {
+    pub fn new(buffer: Vec<u32>) -> Self {
+        Foo { buffer }
+    }
+}
 
 fn add_zero(input: &mut Vec<u32>) {
     input.push(0);
 }
 
-
 fn take_and_return(mut input: Vec<u32>) -> Vec<u32> {
     add_zero(&mut input);
     input
 }
-
-
-fn take_and_keep(input: Vec<u32>) {
-    // Do stuff...
-}
-
 
 fn main() {
     let _immutable_vec = Vec::<u32>::new();
@@ -23,11 +25,6 @@ fn main() {
     let mut mutable_vec = Vec::<u32>::new();
     mutable_vec = take_and_return(mutable_vec);
 
-    // :)
-    // take_and_keep(mutable_vec);
+    let foo = Foo::new(mutable_vec);
     // mutable_vec.push(0);
-
-    // This is fine.
-    take_and_keep(mutable_vec.clone());
-    mutable_vec.push(0);
 }
