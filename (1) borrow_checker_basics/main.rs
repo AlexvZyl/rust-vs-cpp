@@ -25,6 +25,13 @@ fn main() {
     let mut mutable_vec = Vec::<u32>::new();
     mutable_vec = take_and_return(mutable_vec);
 
-    let foo = Foo::new(mutable_vec);
+    // let foo = Foo::new(mutable_vec);
     // mutable_vec.push(0);
+
+    // Can only have one mutable reference.
+    let ref1 = &mutable_vec;
+    let ref2 = &mutable_vec;
+    let ref3 = &mutable_vec;
+    // let ref4 = &mut mutable_vec;
+    println!("ref1: {:?}, ref2: {:?}", ref1, ref2);
 }

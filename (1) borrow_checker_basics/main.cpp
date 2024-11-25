@@ -13,9 +13,10 @@ void add_zero(std::vector<unsigned> &input) {
     input.push_back(1); 
 }
 
-std::vector<unsigned>&& take_and_return(std::vector<unsigned>&& input) {
+std::vector<unsigned> take_and_return(std::vector<unsigned>&& input) {
     add_zero(input);
-    return std::move(input);
+    // Hopefully RVO is applied here :)
+    return input;
 }
 
 int main() {

@@ -2,36 +2,27 @@
 
 - Systems level language.
 - Statically typed.
-- Memory safety is done with the borrow checker - more on that later.
-- No nullptr, all `None` types have to be used in the `Option` enum (like std::optional in C++).
-- No constructors, have to use functions to create type.  Like using static functions in C++.
-- Destructors are "mimicked" with the `Drop` trait.
-
+- Standardized tooling. Cargo vs cmake/premake/etc...
 - Almost like C++, but the compiler enforces a very strict style guide.
-- Mention `serde` and `tokio`.
-
-- Rust cannot write ALL the possible safe apps, but all Rust apps should be safe.
-- No function overloading in Rust.
-
 - Immutable by default.
+
+- Memory safety is done with the borrow checker - more on that later.
 - In C++ we have to do `std::move` a lot if we want move semantics.  But in rust move semantics are the default.
 - `Copy` vs `Clone`.
 
+- No constructors, have to use functions to create type.  Like using static functions in C++.
+- Destructors are "mimicked" with the `Drop` trait.
+
+- Rust cannot write ALL the possible safe apps, but all Rust apps should be safe.
+- No function overloading in Rust.
+- Concurrency can still break, for example, deadlocks.
+
+- No `nullptr`, all `None` types have to be used in the `Option` type (like std::optional in C++).
 - No exceptions - errors as values.
-- Very nice error handling in rust.
-- builtin `?` operator.
+- Very nice error handling in rust (builtin `?` operator).
 
-- Cargo vs cmake/premake/etc...
-
-- Set variables outside of scope without type.
-- Generics inference is quite nice.
-
-- Compiler helps you when you do not match all patterns.
-## Pattern matching
+- Generics type inference is quite nice.
 - Very nice pattern matching.
-    - Nice.
-    ```
-    while let Some(Ok((result))) = tasks.next().await {
-        // do stuff...
-    }
-    ```
+- Compiler helps you when you do not match all patterns.
+
+- Mention `serde` and `tokio`.
